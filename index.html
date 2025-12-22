@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boussole | Retrouver le calme et la clarté</title>
+    <!-- Tailwind CSS pour un design professionnel et responsive -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        /* Animation du cercle de respiration guidée */
+        @keyframes breathe {
+            0%, 100% { transform: scale(1); opacity: 0.6; }
+            50% { transform: scale(1.6); opacity: 1; }
+        }
+        .breathe-circle {
+            animation: breathe 8s infinite ease-in-out;
+        }
+
+        /* Transitions de section */
+        .section-fade {
+            animation: fadeIn 0.4s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hidden-section { display: none; }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        indigo: { 600: '#4f46e5', 700: '#4338ca' },
+                        teal: { 500: '#14b8a6' }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-[#fcfdff] text-slate-800 min-h-screen flex flex-col">
+
+    <!-- Barre de Navigation Anonyme -->
+    <nav class="bg-white/70 backdrop-blur-lg sticky top-0 z-50 border-b border-slate-100 px-6 py-4">
+        <div class="max-w-5xl mx-auto flex justify-between items-center">
+            <div class="font-extrabold text-2xl tracking-tighter cursor-pointer flex items-center gap-2" onclick="navigateTo('home')">
+                <div class="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center text-white text-sm">B</div>
+                <span class="gradient-text">Boussole.</span>
+            </div>
+            <button onclick="navigateTo('zen')" class="bg-indigo-50 text-indigo-600 px-4 py-2 rounded-full text-sm font-bold hover:bg-indigo-100 transition">
+                ✨ Zone de calme
+            </button>
+        </div>
+    </nav>
+
+    <main class="flex-grow container mx-auto px-4 py-8 max-w-2xl relative">
+
+        <!-- SECTION 1: ACCUEIL -->
+        <section id="home" class="section-fade space-y-10">
+            <div class="text-center space-y-6 pt-6">
+                <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 leading-tight tracking-tight">
+                    Prends une grande inspiration. <br>
+                    <span class="text-indigo-600">On est là.</span>
+                </h1>
+                <p class="text-lg text-slate-500 leading-relaxed max-w-lg mx-auto">
+                    Tu as des doutes ou tu as peur après un rapport ? C'est un moment difficile, mais tu n'as rien fait de mal. Explorons la situation ensemble, calmement.
+                </p>
+            </div>
+
+            <!-- Grille de navigation -->
+            <div class="grid gap-4">
+                <button onclick="navigateTo('risques')" class="group w-full bg-white p-6 rounded-3xl shadow-sm border border-slate-200 hover:border-indigo-400 text-left transition-all active:scale-[0.98]">
+                    <div class="flex items-center gap-4">
+                        <div class="w-14 h-14 bg-rose-50 text-rose-500 rounded-2xl flex items-center justify-center text-2xl group-hover:scale-110 transition">😟</div>
+                        <div>
+                            <h2 class="font-bold text-lg">J'ai peur d'une grossesse</h2>
+                            <p class="text-slate-500 text-sm">Les faits, les délais et les solutions concrètes.</p>
+                        </div>
+                    </div>
+                </button>
+
+                <button onclick="navigateTo('emotions')" class="group w-full bg-white p-6 rounded-3xl shadow-sm border border-slate-200 hover:border-indigo-400 text-left transition-all active:scale-[0.98]">
+                    <div class="flex items-center gap-4">
+                        <div class="w-14 h-14 bg-purple-50 text-purple-500 rounded-2xl flex items-center justify-center text-2xl group-hover:scale-110 transition">💭</div>
+                        <div>
+                            <h2 class="font-bold text-lg">Je me sens coupable ou stressé(e)</h2>
+                            <p class="text-slate-500 text-sm">Parce que ta santé mentale est aussi une priorité.</p>
+                        </div>
+                    </div>
+                </button>
+
+                <button onclick="navigateTo('agir')" class="group w-full bg-white p-6 rounded-3xl shadow-sm border border-slate-200 hover:border-indigo-400 text-left transition-all active:scale-[0.98]">
+                    <div class="flex items-center gap-4">
+                        <div class="w-14 h-14 bg-emerald-50 text-emerald-500 rounded-2xl flex items-center justify-center text-2xl group-hover:scale-110 transition">🚀</div>
+                        <div>
+                            <h2 class="font-bold text-lg">Que faire maintenant ?</h2>
+                            <p class="text-slate-500 text-sm">Une checklist simple pour reprendre le contrôle.</p>
+                        </div>
+                    </div>
+                </button>
+            </div>
+
+            <div class="bg-indigo-600 text-white p-8 rounded-[2.5rem] mt-12 text-center relative overflow-hidden">
+                <div class="relative z-10">
+                    <p class="font-medium text-indigo-100 text-sm uppercase tracking-widest mb-2">Message d'espoir</p>
+                    <p class="text-xl font-bold italic leading-relaxed">
+                        "J'ai eu peur aussi, j'ai cru que ma vie était finie. Mais j'ai parlé, j'ai trouvé de l'aide, et aujourd'hui tout va bien. Tu vas t'en sortir."
+                    </p>
+                    <p class="mt-4 text-sm opacity-70">— Témoignage anonyme</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: RISQUES & RÉALITÉ -->
+        <section id="risques" class="hidden-section section-fade space-y-6">
+            <button onclick="navigateTo('home')" class="text-indigo-600 font-bold flex items-center gap-2 mb-4">
+                <span>←</span> Retour à l'accueil
+            </button>
+            <h2 class="text-3xl font-extrabold tracking-tight">Risques et réalité</h2>
+            <div class="space-y-4">
+                <div class="bg-white p-6 rounded-3xl border border-slate-200">
+                    <h3 class="font-bold text-indigo-600 mb-2">Pas de panique immédiate</h3>
+                    <p class="text-slate-600">Le risque de grossesse n'est pas le même tout au long du mois. Le stress, lui, peut bloquer ou retarder tes règles. C'est un cercle vicieux.</p>
+                </div>
+                <div class="bg-rose-50 border border-rose-100 p-6 rounded-3xl">
+                    <h3 class="font-bold text-rose-700 mb-2 underline">Contraception d'urgence</h3>
+                    <p class="text-rose-800 text-sm leading-relaxed">
+                        Si le rapport date de moins de 3 jours (72h), ou jusqu'à 5 jours pour certaines méthodes, la "pilule du lendemain" est disponible en pharmacie. 
+                        <strong>C'est gratuit et anonyme pour les mineures.</strong> Pas besoin d'ordonnance ni d'accord parental.
+                    </p>
+                </div>
+                <div class="bg-white p-6 rounded-3xl border border-slate-200">
+                    <h3 class="font-bold text-slate-800 mb-2">Le Test de Grossesse</h3>
+                    <p class="text-slate-600 text-sm">Pour être fiable, un test doit être fait au moins 3 semaines après le rapport à risque, ou dès le premier jour de retard des règles. Le faire trop tôt ne servirait à rien.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: ÉMOTIONS -->
+        <section id="emotions" class="hidden-section section-fade space-y-8 text-center pt-10">
+            <button onclick="navigateTo('home')" class="text-indigo-600 font-bold mx-auto flex items-center gap-2 mb-4">
+                <span>←</span> Retour
+            </button>
+            <h2 class="text-3xl font-extrabold text-slate-900 italic">"Je me sens mal..."</h2>
+            <div class="space-y-6 text-lg text-slate-600 max-w-lg mx-auto leading-relaxed">
+                <p>La peur est un signal de ton corps, pas une condamnation. Ressentir de la culpabilité est fréquent à cause de ce que la société nous raconte sur la sexualité.</p>
+                <div class="h-px bg-slate-200 w-24 mx-auto"></div>
+                <p class="font-bold text-slate-800 italic text-2xl">
+                    "Tu n'es pas une mauvaise personne. Tu es un être humain en plein apprentissage."
+                </p>
+                <p>N'oublie pas : ton corps t'appartient. Quoi qu'il arrive, il y a des solutions et des gens dont le métier est de t'aider sans jamais te juger.</p>
+            </div>
+        </section>
+
+        <!-- SECTION 4: AGIR -->
+        <section id="agir" class="hidden-section section-fade space-y-6">
+            <button onclick="navigateTo('home')" class="text-indigo-600 font-bold flex items-center gap-2 mb-4">
+                <span>←</span> Retour
+            </button>
+            <h2 class="text-3xl font-extrabold">Ta Checklist de reprise de contrôle</h2>
+            <div class="space-y-4">
+                <div class="flex gap-4 items-start bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
+                    <div class="w-8 h-8 bg-indigo-100 text-indigo-600 rounded-full flex-shrink-0 flex items-center justify-center font-bold">1</div>
+                    <p class="text-slate-700"><strong>Note la date.</strong> Pour calculer les délais du test ou de la pilule, sois précis(e).</p>
+                </div>
+                <div class="flex gap-4 items-start bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
+                    <div class="w-8 h-8 bg-indigo-100 text-indigo-600 rounded-full flex-shrink-0 flex items-center justify-center font-bold">2</div>
+                    <p class="text-slate-700"><strong>Vérifie tes options.</strong> Appelle le 0 800 08 11 11 (Planning Familial) pour poser toutes tes questions anonymement.</p>
+                </div>
+                <div class="flex gap-4 items-start bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
+                    <div class="w-8 h-8 bg-indigo-100 text-indigo-600 rounded-full flex-shrink-0 flex items-center justify-center font-bold">3</div>
+                    <p class="text-slate-700"><strong>Parle à quelqu'un.</strong> Un(e) ami(e) de confiance, une infirmière scolaire ou un professionnel. Le secret est ton pire ennemi.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: ZONE DE CALME (LE JEU MORAL) -->
+        <section id="zen" class="hidden-section section-fade text-center space-y-12">
+            <div>
+                <button onclick="navigateTo('home')" class="text-indigo-600 font-bold mx-auto flex items-center gap-2 mb-8">
+                    <span>←</span> Quitter la zone de calme
+                </button>
+                <h2 class="text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">Respirez ensemble.</h2>
+                <p class="text-slate-500">Quand on panique, on oublie de respirer. Redescendons doucement.</p>
+            </div>
+
+            <!-- Respiration Guidée -->
+            <div class="relative flex flex-col items-center justify-center h-64">
+                <div class="breathe-circle absolute w-40 h-40 bg-indigo-100 rounded-full"></div>
+                <div class="breathe-circle absolute w-32 h-32 bg-indigo-300 rounded-full"></div>
+                <div class="relative z-10 font-black text-2xl text-indigo-900 tracking-widest" id="breathe-status">INSPIRE...</div>
+            </div>
+
+            <!-- Le Générateur d'Etincelles -->
+            <div class="bg-white p-8 rounded-[3rem] border-2 border-indigo-100 shadow-xl max-w-md mx-auto">
+                <h3 class="font-bold text-slate-400 uppercase text-xs tracking-[0.2em] mb-4">La Boîte à Étincelles</h3>
+                <div id="sparkle-text" class="text-xl font-bold text-slate-800 min-h-[80px] flex items-center justify-center leading-relaxed">
+                    Besoin d'un peu de force ? Clique sur le bouton.
+                </div>
+                <button onclick="generateSparkle()" class="mt-8 w-full py-4 bg-indigo-600 text-white rounded-2xl font-bold shadow-lg shadow-indigo-200 hover:bg-indigo-700 hover:scale-[1.02] transition active:scale-[0.98]">
+                    Me donner du courage ⚡
+                </button>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer Discret -->
+    <footer class="bg-slate-50 border-t border-slate-200 px-6 py-10 mt-12">
+        <div class="max-w-2xl mx-auto text-center space-y-4">
+            <p class="text-xs text-slate-400 leading-relaxed uppercase tracking-widest font-bold">Ligne d'écoute anonyme : 0 800 08 11 11 (France)</p>
+            <p class="text-[10px] text-slate-400">Ce site est un outil de soutien et d'orientation. Il ne remplace pas une consultation médicale. Navigation 100% anonyme, aucune donnée collectée.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Logique de navigation simple
+        function navigateTo(sectionId) {
+            const sections = ['home', 'risques', 'emotions', 'agir', 'zen'];
+            sections.forEach(id => {
+                const element = document.getElementById(id);
+                if(element) element.classList.add('hidden-section');
+            });
+            const active = document.getElementById(sectionId);
+            if(active) active.classList.remove('hidden-section');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Animation du texte de respiration
+        const statusText = document.getElementById('breathe-status');
+        setInterval(() => {
+            statusText.textContent = "INSPIRE...";
+            setTimeout(() => {
+                statusText.textContent = "EXPIRE...";
+            }, 4000);
+        }, 8000);
+
+        // Messages de force (Étincelles)
+        const messages = [
+            "Cette peur ne définit pas qui tu es. C'est juste un nuage qui passe.",
+            "Tu es plus courageux/se que tu ne le penses en cherchant de l'aide ici.",
+            "Respire. Le monde ne s'arrête pas aujourd'hui. Il y a toujours une solution.",
+            "Une erreur ou un accident ne gâche pas une vie. C'est une leçon, pas une fin.",
+            "Tu as le droit de faire des erreurs. Tu as le droit d'être aidé(e).",
+            "Demain, le soleil se lèvera et tu seras encore toi, avec toute ta valeur.",
+            "Garder le silence est épuisant. Bravo d'avoir fait ce premier pas."
+        ];
+
+        function generateSparkle() {
+            const textEl = document.getElementById('sparkle-text');
+            const randomMsg = messages[Math.floor(Math.random() * messages.length)];
+            
+            textEl.style.opacity = 0;
+            setTimeout(() => {
+                textEl.textContent = randomMsg;
+                textEl.style.opacity = 1;
+                textEl.style.transition = 'opacity 0.4s ease';
+            }, 150);
+        }
+    </script>
+</body>
+</html>
