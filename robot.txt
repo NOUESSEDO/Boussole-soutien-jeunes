@@ -1,5 +1,0 @@
-Autorise tous les moteurs de recherche à indexer le site
-​User-agent: *
-Allow: /
-​Lien vers le sitemap pour aider l'indexation
-​Sitemap: https://www.google.com/search?q=https://nouessedo.github.io/Boussole-soutien-jeunes/sitemap.xml
